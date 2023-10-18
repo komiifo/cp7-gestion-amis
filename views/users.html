@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+</head>
+
+<body>
+    <%- include("header.html"); %>
+
+        <h1>Liste des utilisateurs</h1>
+    
+        <% if (users && users.length > 0) { %>
+            <ul>
+                <% users.forEach(user => { %>
+                    <li>
+                        <%= user.nom %> <%= user.prenom %>
+                        <a href="/send-friend-request/<%= user.idUser %>">Envoyer une demande d'ami</a>
+                    </li>
+                <% }); %>
+            </ul>
+        <% } else { %>
+            <p>Aucun autre utilisateur disponible.</p>
+        <% } %>
+
+</body>
+
+</html>
