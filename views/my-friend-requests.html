@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes demandes d'amis</title>
+</head>
+
+<body>
+    <%- include("header.html"); %>
+
+        <h1>Mes demandes d'amis en cours</h1>
+
+        <% if (friendRequests && friendRequests.length> 0) { %>
+            <ul>
+                <% friendRequests.forEach(request=> { %>
+                    <li>
+                        <% if (request.etat == 'Acceptée') { %>
+                            Demande acceptée de <%= request.nom %> <%=  request.prenom %>
+                        <% } else { %>
+                            Demande envoyée à <%= request.nom %> <%=  request.prenom %>
+                            (<a href="/cancel-friend-request/<%= request.IdDemande %>">Annuler</a>)
+                        <% }; %>
+                    </li>
+                    <% }); %>
+            </ul>
+        <% } else { %>
+            <p>Aucune demande d'amis en cours.</p>
+        <% } %>
+
+</body>
+
+</html>
