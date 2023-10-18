@@ -13,11 +13,11 @@ CREATE TABLE IF NOT EXISTS users (
 
 -- Table des demandes d'amis
 CREATE TABLE IF NOT EXISTS demandes_amis (
-    ID_Demande INT AUTO_INCREMENT PRIMARY KEY,
+    idDemande INT AUTO_INCREMENT PRIMARY KEY,
     idUserEmetteur INT NOT NULL,
     idUserRecepteur INT NOT NULL,
-    Etat ENUM('En Attente', 'Acceptée', 'Refusée') DEFAULT 'En Attente',
-    DateDemande DATETIME NOT NULL,
+    etat ENUM('En Attente', 'Acceptée', 'Refusée') DEFAULT 'En Attente',
+    dateDemande DATETIME NOT NULL,
     FOREIGN KEY (idUserEmetteur) REFERENCES users(idUser),
     FOREIGN KEY (idUserRecepteur) REFERENCES users(idUser)
 );
