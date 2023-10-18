@@ -4,6 +4,8 @@ const app = express();
 
 // Configuration de la vue EJS
 app.set('view engine', 'ejs');
+app.set('views', './views');
+
 
 app.use(express.json());
 
@@ -12,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Accueil - GET
 app.get('/', (req, res) => {
-    res.send('Hello, world!');
+    res.render('home');
 });
 
 // Démarrage du serveur sur le port 3000
