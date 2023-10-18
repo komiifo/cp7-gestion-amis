@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demandes d'amis reçues</title>
+</head>
+
+<body>
+    <%- include("header.html"); %>
+
+        <h1>Demandes d'amis reçues</h1>
+
+        <% if (friendRequestsReceived && friendRequestsReceived.length> 0) { %>
+            <ul>
+                <% friendRequestsReceived.forEach(request=> { %>
+                    <li>
+                        Demande de <%= request.ID_Utilisateur_Emetteur %>
+                            (<a href="/accept-friend-request/<%= request.IdDemande %>">Accepter</a> /
+                            <a href="/reject-friend-request/<%= request.IdDemande %>">Refuser</a>)
+                    </li>
+                <% }); %>
+            </ul>
+        <% } else { %>
+            <p>Aucune demande d'amis reçue.</p>
+        <% } %>
+
+</body>
+
+</html>
